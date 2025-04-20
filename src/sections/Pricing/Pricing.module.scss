@@ -1,0 +1,70 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.pricing {
+  position: relative;
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  padding: vars.$spacing-large 20px;
+  background-color: vars.$color-background-white;
+}
+
+.pricing__plans {
+  @include mixins.flex(
+    $direction: row,
+    $justify: center,
+    $align: center,
+    $gap: 24px
+  );
+  width: 100%;
+  max-width: 1200px;
+}
+
+.pricing__blob {
+  position: absolute;
+  top: -10px;
+  left: 80px;
+  width: 265px;
+  height: 182px;
+  z-index: 1;
+}
+
+.pricing__spiral-left {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.pricing__spiral-right {
+  position: absolute;
+  top: 50%;
+  right: 33%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@include mixins.respond-to("mobile") {
+  .pricing__plans {
+    @include mixins.flex($direction: column, $gap: 30px);
+  }
+
+  .pricing__blob {
+    width: 150px;
+    height: 100px;
+    top: -50px;
+    left: 0;
+  }
+
+  .pricing__spiral-left,
+  .pricing__spiral-right {
+    width: 100px;
+    height: 100px;
+  }
+}

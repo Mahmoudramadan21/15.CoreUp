@@ -1,0 +1,67 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.hero {
+  display: grid;
+  grid-template-columns: 34% 45%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 90px;
+  margin-bottom: 90px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: vars.$color-text-dark;
+
+    .highlight {
+      position: relative;
+      color: vars.$color-primary;
+
+      @include mixins.respond-to("tablet", "min") {
+        &::after {
+          position: absolute;
+          width: 6px;
+          height: 42px;
+          right: -16px;
+          bottom: 0;
+          content: "";
+          background-color: vars.$color-primary;
+        }
+      }
+    }
+  }
+
+  &__subtitle {
+    color: vars.$color-text-gray-muted;
+    line-height: 1.6;
+  }
+
+  &__graphic img {
+    width: clamp(240px, 100%, 540px);
+  }
+}
+
+@include mixins.respond-to("tablet") {
+  .hero {
+    grid-template-columns: 45% 45%;
+  }
+}
+
+@include mixins.respond-to("mobile") {
+  .hero {
+    grid-template-columns: auto;
+    text-align: center;
+    gap: 48px;
+
+    &__content {
+      align-items: center;
+    }
+  }
+}

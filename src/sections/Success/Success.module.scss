@@ -1,0 +1,36 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.success {
+  margin-top: 90px;
+  margin-bottom: 90px;
+
+  &__title {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    color: vars.$color-text-dark;
+    text-align: center;
+
+    &_highlight {
+      color: vars.$color-primary;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: vars.$color-text-gray-muted;
+    text-align: center;
+
+    @include mixins.respond-to("mobile", "min") {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+}

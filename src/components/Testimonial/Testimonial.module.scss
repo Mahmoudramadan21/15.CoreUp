@@ -1,0 +1,60 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.testimonial {
+  @include mixins.flex($direction: column, $align: start);
+  padding: vars.$spacing-medium;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: vars.$color-background-white;
+  position: relative;
+}
+
+.testimonial__stars {
+  @include mixins.flex($gap: 5px);
+  margin-bottom: vars.$spacing-medium;
+}
+
+.testimonial__text {
+  font-size: vars.$font-size-body;
+  line-height: 1.5;
+  color: vars.$color-text-gray;
+  margin-bottom: vars.$spacing-medium;
+}
+
+.testimonial__footer {
+  @include mixins.flex($justify: space-between, $align: space-between);
+  margin-top: vars.$spacing-medium;
+  width: 100%;
+}
+
+.testimonial__user {
+  @include mixins.flex($direction: row, $gap: 10px);
+  margin-bottom: vars.$spacing-medium;
+}
+
+.testimonial__avatar {
+  width: vars.$avatar-size;
+  height: vars.$avatar-size;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial__user-info {
+  @include mixins.flex($direction: column, $align: start);
+  text-align: left;
+}
+
+.testimonial__name {
+  margin-bottom: 4px;
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$color-text-dark;
+}
+
+.testimonial__role {
+  font-size: vars.$font-size-body;
+  color: vars.$color-text-gray;
+}

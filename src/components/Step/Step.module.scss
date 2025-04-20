@@ -1,0 +1,71 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.step {
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  position: relative;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.step--document {
+  background-color: vars.$color-background-white;
+  border-radius: 12px;
+}
+
+.step__icon {
+  @include mixins.flex($justify: center, $align: center);
+  width: vars.$icon-size;
+  height: vars.$icon-size;
+  margin-bottom: vars.$spacing-medium;
+  font-size: 1.5rem;
+  background-color: vars.$color-background-white;
+  border-radius: 50%;
+  color: vars.$color-background-white;
+}
+
+.step__icon--document {
+  background-color: vars.$color-primary;
+}
+
+.step__title {
+  margin-bottom: vars.$spacing-small;
+  font-size: vars.$font-size-subtitle;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$color-text-dark;
+}
+
+.step__description {
+  font-size: vars.$font-size-body;
+  line-height: 1.3;
+  color: vars.$color-text-gray;
+}
+
+.step__connector {
+  position: absolute;
+  top: 0;
+  right: -35%;
+  z-index: 2;
+  transform: scale(0.9);
+}
+
+.step__connector--reversed {
+  top: 30%;
+}
+
+@include mixins.respond-to("tablet") {
+  .step__connector {
+    right: -54%;
+    transform: scale(0.6);
+  }
+}
+
+@include mixins.respond-to("mobile") {
+  .step__connector {
+    display: none;
+  }
+
+  .step--document {
+    background-color: inherit;
+  }
+}

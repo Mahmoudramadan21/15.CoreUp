@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.testimonials {
+  @include flex($direction: column);
+  padding: $spacing-large 20px;
+  background-color: $color-background-white;
+}
+
+.testimonials__title {
+  text-align: center;
+  margin-bottom: $spacing-large;
+  font-size: $font-size-title;
+  font-weight: $font-weight-medium;
+  color: $color-text-dark;
+}
+
+.testimonials__list {
+  @include flex($gap: 20px);
+  width: 100%;
+  max-width: 1200px;
+
+  @include respond-to("mobile") {
+    @include flex($direction: column, $gap: 30px);
+  }
+}
+
+.testimonials__pagination {
+  @include flex($gap: 10px);
+  margin-top: $spacing-large;
+}
+
+.testimonials__dot {
+  width: $dot-size;
+  height: $dot-size;
+  background-color: $color-dot-inactive;
+  border-radius: 50%;
+}
+
+.testimonials__dot--active {
+  background-color: $color-dot-active;
+}

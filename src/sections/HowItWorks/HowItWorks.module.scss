@@ -1,0 +1,30 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.how-it-works {
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  padding: vars.$spacing-large 20px;
+  background-color: vars.$color-background-light;
+}
+
+.how-it-works__title {
+  text-align: center;
+  margin-bottom: vars.$spacing-large;
+  font-size: vars.$font-size-title;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-text-dark;
+}
+
+.how-it-works__steps {
+  @include mixins.flex(
+    $direction: row,
+    $justify: space-between,
+    $align: center
+  );
+  width: 100%;
+  max-width: 1200px;
+
+  @include mixins.respond-to("mobile") {
+    @include mixins.flex($direction: column, $justify: center, $align: center);
+  }
+}
