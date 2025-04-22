@@ -6,6 +6,7 @@ import Testimonials from "../../sections/Testimonials/Testimonials";
 import CTA from "../../sections/CTA/CTA";
 import Pricing from "../../sections/Pricing/Pricing";
 import Header from "../../sections/Header/Header";
+import Footer from "../../sections/Footer/Footer";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <CTA />
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,261 @@
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
+
+.footer {
+  // Box Model
+  margin-top: vars.$spacing-medium;
+  padding: 60px 0 40px;
+  // Visual
+  background-color: vars.$footer-bg;
+  color: vars.$text-light-gray;
+}
+
+.footer__container {
+  // Box Model
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include mixins.respond-to("mobile") {
+    text-align: center;
+  }
+}
+
+.footer__columns {
+  // Layout
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 20px;
+
+  @include mixins.respond-to("tablet") {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on tablet
+  }
+
+  @include mixins.respond-to("mobile") {
+    grid-template-columns: 1fr; // 1 column on mobile
+  }
+}
+
+.footer__column-title {
+  // Typography
+  font-size: 0.9rem;
+  font-weight: vars.$font-weight-medium;
+  color: vars.$title-gray; // Gray titles
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer__column-list {
+  // Layout
+  list-style: none;
+  padding: 0;
+}
+
+.footer__column-item {
+  // Layout
+  margin-bottom: 20px;
+}
+
+.footer__column-link {
+  // Typography
+  font-size: 0.95rem;
+  color: vars.$text-light-gray; // Light gray links
+  text-decoration: none;
+  // Behavior
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$white; // White on hover
+  }
+}
+
+.footer__newsletter-form {
+  // Layout
+}
+
+.footer__newsletter-description {
+  // Accessibility: Visually hidden but accessible to screen readers
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.footer__newsletter-input-wrapper {
+  // Layout
+  @include mixins.flex($align: center);
+  // Box Model
+  margin-bottom: 20px;
+  border: 1px solid vars.$white; // White border
+  border-radius: 4px;
+}
+
+.footer__newsletter-input {
+  // Layout
+  flex-grow: 1;
+  // Box Model
+  padding: 10px 15px;
+  // Visual
+  background-color: transparent;
+  border: none;
+  color: vars.$white;
+  font-size: 0.9rem;
+
+  &::placeholder {
+    color: vars.$text-light-gray; // Light gray placeholder
+  }
+
+  &:focus {
+    outline: none;
+    border-color: vars.$blue; // Blue border on focus
+  }
+}
+
+.footer__newsletter-button {
+  // Box Model
+  padding: 10px 15px;
+  // Visual
+  background-color: vars.$blue; // Blue button
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: vars.$white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  // Behavior
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: vars.$blue-dark; // Darker blue on hover
+    color: vars.$white;
+  }
+}
+
+.footer__newsletter-checkbox {
+  // Layout
+  @include mixins.flex($align: start, $gap: 8px);
+}
+
+.footer__newsletter-checkbox-input {
+  // Box Model
+  width: 16px;
+  height: 16px;
+  // Visual
+  accent-color: vars.$white; // White checkbox
+  background-color: transparent;
+}
+
+.footer__newsletter-checkbox-text {
+  // Typography
+  font-size: 0.85rem;
+  color: vars.$text-light-gray; // Light gray text
+}
+
+.footer__newsletter-link {
+  // Typography
+  color: vars.$blue; // Blue link
+  text-decoration: none;
+  // Behavior
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$blue-dark; // Darker blue on hover
+  }
+}
+
+.footer__bottom {
+  // Layout
+  @include mixins.flex($justify: space-between, $align: center);
+  // Box Model
+  margin-bottom: 40px;
+  border: 1px solid #94a3b829;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-right: none;
+  border-left: none;
+
+  @include mixins.respond-to("mobile") {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+.footer__contact {
+  // Layout
+  @include mixins.flex($align: center, $gap: 40px);
+
+  @include mixins.respond-to("tablet") {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.footer__contact-follow {
+  // Layout
+  @include mixins.flex($align: center, $gap: 12px);
+}
+
+.footer__contact-label {
+  // Typography
+  font-size: 0.95rem;
+  color: vars.$text-light-gray; // Light gray
+}
+
+.footer__contact-icon {
+  // Typography
+  font-size: 1.2rem;
+  color: vars.$text-light-gray; // Light gray icon
+  // Behavior
+  transition: color 0.3s ease;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    color: vars.$white; // White on hover
+  }
+}
+
+.footer__contact-emails {
+  // Layout
+  @include mixins.flex($gap: 20px);
+
+  @include mixins.respond-to("tablet") {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.footer__contact-email {
+  // Typography
+  font-size: 0.95rem;
+  color: vars.$text-light-gray; // Light gray
+  text-decoration: none;
+  // Behavior
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$white; // White on hover
+  }
+}
+
+.footer__copyright {
+  // Typography
+  font-size: 0.95rem;
+  color: vars.$text-light-gray; // Light gray
+}
+
+.footer__disclaimer {
+  // Typography
+  font-size: 0.85rem;
+  color: vars.$text-light-gray; // Light gray
+  line-height: 1.5;
+  text-align: center;
+}
