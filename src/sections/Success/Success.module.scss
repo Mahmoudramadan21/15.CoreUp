@@ -1,77 +1,42 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Success container
 .success {
-  // Layout
-  display: grid;
-  grid-template-columns: 34% 45%;
-  justify-content: space-between;
-  align-items: center;
-
   // Box Model
-  gap: 24px;
+  margin-top: 90px;
   margin-bottom: 90px;
-}
 
-// Success Content
-.success__content {
-  // Layout
-  display: flex;
-  flex-direction: column;
-
-  // Box Model
-  gap: 24px;
-}
-
-// Section Title
-.success__title {
-  // Typography
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  color: vars.$color-text-dark;
-}
-
-// Cards Container
-.success__cards {
-  // Layout
-  display: flex;
-  flex-direction: column;
-
-  // Box Model
-  gap: 24px;
-
-  @include mixins.respond-to("mobile") {
-    // Layout
-    align-items: center;
-  }
-}
-
-// Success Image
-.success__image img {
-  // Box Model
-  width: clamp(240px, 100%, 540px);
-  height: auto;
-}
-
-@include mixins.respond-to("tablet") {
-  .success {
-    // Layout
-    grid-template-columns: 45% 45%;
-  }
-}
-
-@include mixins.respond-to("mobile") {
-  .success {
-    // Layout
-    grid-template-columns: auto;
+  &__title {
+    // Typography
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    color: vars.$color-text-dark;
     text-align: center;
 
-    // Box Model
-    gap: 48px;
-
-    &__content {
-      // Layout
-      align-items: center;
+    &_highlight {
+      // Typography
+      color: vars.$color-primary;
     }
+  }
+
+  &__subtitle {
+    // Box Model
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    // Typography
+    color: vars.$color-text-gray-muted;
+    text-align: center;
+
+    @include mixins.respond-to("mobile", "min") {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__cards {
+    // Layout
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
   }
 }

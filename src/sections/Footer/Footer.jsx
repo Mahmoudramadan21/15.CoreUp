@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 
-/**
- * Footer component with navigation, newsletter, and contact info.
+/*
+ * Footer component with links, newsletter form, and contact info
  */
 const Footer = () => {
   const newsletterCheckboxId = "newsletter-consent";
 
   return (
-    <footer className={styles.footer} role="contentinfo">
+    <footer className={styles.footer}>
       <div className={styles["footer__container"]}>
         {/* Main Columns */}
         <div className={styles["footer__columns"]}>
@@ -143,7 +143,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter Column */}
+          {/* Newsletter Subscription */}
           <div className={styles["footer__column"]}>
             <h3 className={styles["footer__column-title"]}>
               Subscribe newsletter

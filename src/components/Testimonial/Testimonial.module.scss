@@ -1,112 +1,78 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Testimonial container
+// Testimonial card styles
 .testimonial {
-  // Layout
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  // Box Model
   padding: vars.$spacing-medium;
   width: 100%;
   max-width: 350px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  // Visual
   background-color: vars.$color-background-white;
-  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-// Rating Stars
+// Stars container
 .testimonial__stars {
-  // Layout
   display: flex;
-
-  // Box Model
   gap: 5px;
   margin-bottom: vars.$spacing-medium;
 }
 
-.testimonial__star {
-  // Box Model
-  width: 16px;
-  height: 16px;
-}
-
-// Testimonial Text
+// Testimonial text
 .testimonial__text {
-  // Box Model
   margin-bottom: vars.$spacing-medium;
-
-  // Typography
   font-size: vars.$font-size-body;
   line-height: 1.5;
   color: vars.$color-text-gray;
 }
 
-// Testimonial Footer
+// Testimonial footer
 .testimonial__footer {
-  // Layout
   display: flex;
   justify-content: space-between;
   align-items: space-between;
-
-  // Box Model
   margin-top: vars.$spacing-medium;
   width: 100%;
 }
 
+// User info container
 .testimonial__user {
-  // Layout
   display: flex;
   flex-direction: row;
-
-  // Box Model
   gap: 10px;
   margin-bottom: vars.$spacing-medium;
 }
 
+// User avatar
 .testimonial__avatar {
-  // Box Model
   width: vars.$avatar-size;
   height: vars.$avatar-size;
-
-  // Visual
   border-radius: 50%;
   object-fit: cover;
 }
 
+// User info (name and role)
 .testimonial__user-info {
-  // Layout
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  // Typography
   text-align: left;
 }
 
+// User name
 .testimonial__name {
-  // Box Model
   margin-bottom: 4px;
-
-  // Typography
   font-size: vars.$font-size-base;
   font-weight: vars.$font-weight-medium;
   color: vars.$color-text-dark;
 }
 
+// User role
 .testimonial__role {
-  // Typography
   font-size: vars.$font-size-body;
   color: vars.$color-text-gray;
-}
-
-.testimonial__quote {
-  // Box Model
-  width: 24px;
-  height: 24px;
 }

@@ -4,13 +4,13 @@ import styles from "./PlanButton.module.scss";
 import arrowRight from "../../assets/icons/arrow-right.svg";
 import arrowRightLight from "../../assets/icons/arrow-right-light.svg";
 
-/**
- * PlanButton component for linking to pricing plans.
- * @param {Object} props
- * @param {React.ReactNode} props.children - Button content.
- * @param {string} props.to - Navigation path.
- * @param {string} [props.variant="default"] - Button variant ("default" or "primary").
- * @param {string} [props.ariaLabel] - Accessibility label.
+/*
+ * PlanButton component for pricing plan actions
+ * Props:
+ * - children: Button content
+ * - to: Navigation path
+ * - variant: Button style ("default" or "primary")
+ * - ariaLabel: Accessibility label
  */
 const PlanButton = ({ children, to, variant = "default", ariaLabel }) => {
   return (
@@ -19,13 +19,16 @@ const PlanButton = ({ children, to, variant = "default", ariaLabel }) => {
       className={`${styles.planButton} ${styles[`planButton--${variant}`]}`}
       aria-label={ariaLabel}
     >
+      {/* Button Text */}
       {children}
+      {/* Arrow Icon */}
       <img
         src={variant === "default" ? arrowRight : arrowRightLight}
         className={styles["planButton__arrow"]}
         alt="Arrow right icon"
-        width="16"
-        height="16"
+        width="20"
+        height="20"
+        loading="lazy"
       />
     </Link>
   );

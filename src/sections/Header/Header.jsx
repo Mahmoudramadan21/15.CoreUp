@@ -4,13 +4,13 @@ import styles from "./Header.module.scss";
 import logo from "../../assets/logo.png";
 import Button from "../../components/Button/Button";
 
-/**
- * Header component with navigation and actions.
+/*
+ * Header component with navigation and actions
  */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle mobile menu
+  // Toggle mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -61,7 +61,9 @@ const Header = () => {
                       isActive ? styles["header__nav-link--active"] : ""
                     }`
                   }
-                  aria-current={(isActive) => (isActive ? "page" : undefined)}
+                  aria-current={({ isActive }) =>
+                    isActive ? "page" : undefined
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -70,14 +72,14 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Actions for Mobile */}
+          {/* Mobile Actions */}
           <div
             className={`${styles["header__actions"]} ${styles["header__actions--mobile"]}`}
           >
             <Button
               className="btn--primary"
               to="/join"
-              ariaLabel="Join now"
+              aria-label="Join now"
               onClick={() => setIsMenuOpen(false)}
             >
               Join now
@@ -86,21 +88,21 @@ const Header = () => {
               to="/login"
               className={styles["header__login"]}
               onClick={() => setIsMenuOpen(false)}
-              aria-label="Login to COREUP"
+              aria-label="Login to your account"
             >
               Login
             </Link>
           </div>
         </nav>
 
-        {/* Actions for Desktop */}
+        {/* Desktop Actions */}
         <div
           className={`${styles["header__actions"]} ${styles["header__actions--desktop"]}`}
         >
           <Button
             className="btn--primary"
             to="/join"
-            ariaLabel="Join now"
+            aria-label="Join now"
             onClick={() => setIsMenuOpen(false)}
           >
             Join now
@@ -109,13 +111,13 @@ const Header = () => {
             to="/login"
             className={styles["header__login"]}
             onClick={() => setIsMenuOpen(false)}
-            aria-label="Login to COREUP"
+            aria-label="Login to your account"
           >
             Login
           </Link>
         </div>
 
-        {/* Hamburger Menu for Mobile */}
+        {/* Hamburger Menu */}
         <button
           className={styles["header__hamburger"]}
           onClick={toggleMenu}

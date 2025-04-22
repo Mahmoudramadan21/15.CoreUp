@@ -1,82 +1,49 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// PlanButton styles
+// Plan button styles
 .planButton {
-  // Layout
   display: flex;
   justify-content: center;
   align-items: center;
-  white-space: nowrap;
-
-  // Box Model
   box-sizing: content-box;
-  padding-left: 30px;
-  padding-right: 30px;
   width: 100%;
   height: 48px;
-
-  // Typography
+  padding: 0 30px;
+  white-space: nowrap;
   font-weight: vars.$font-weight-medium;
-
-  // Visual
   border: none;
   border-radius: vars.$border-radius-small;
   cursor: pointer;
-
-  // Transitions
   transition: background-color 0.3s ease;
 
-  // Default variant
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+
   &--default {
-    // Typography
     color: vars.$color-primary;
 
     .planButton__arrow {
-      // Typography
       color: vars.$color-primary;
-    }
-
-    &:hover {
-      // Visual
-      background-color: rgba(vars.$color-primary, 0.1);
     }
   }
 
-  // Primary variant
   &--primary {
-    // Typography
     color: vars.$color-background-white;
 
-    // Visual
-    background-color: vars.$color-primary;
-
     .planButton__arrow {
-      // Typography
       color: vars.$color-background-white;
     }
 
     &:hover {
-      // Visual
       background-color: vars.$color-primary-hover;
     }
   }
 
-  // Arrow icon
   &__arrow {
-    // Box Model
     margin-left: 10px;
-    width: 16px;
-    height: 16px;
-
-    // Typography
     font-size: 1.2rem;
-  }
-
-  // Focus styles for accessibility
-  &:focus-visible {
-    // Box Model
-    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
-    outline-offset: vars.$focus-outline-offset;
   }
 }

@@ -2,30 +2,30 @@ import React from "react";
 import styles from "./Plan.module.scss";
 import checkIcon from "../../assets/icons/check.svg";
 
-/**
- * Check Icon for displaying feature availability.
+/*
+ * Plan Component to display each pricing plan
+ * Props:
+ * - title: Plan title (e.g., "Basic")
+ * - description: Plan description
+ * - price: Plan price (e.g., "$19")
+ * - period: Billing period (e.g., "/Monthly")
+ * - features: Array of features
+ * - isRecommended: Boolean to highlight recommended plan
+ * - button: Button component for the plan
  */
+
+// Check Icon for features
 const CheckIcon = () => (
   <img
     src={checkIcon}
     className={styles["plan__check"]}
-    alt="Check mark indicating feature availability"
+    alt="Feature available check mark"
     width="16"
     height="16"
+    loading="lazy"
   />
 );
 
-/**
- * Plan component for displaying pricing plans.
- * @param {Object} props
- * @param {string} props.title - Plan title.
- * @param {string} props.description - Plan description.
- * @param {string} props.price - Plan price.
- * @param {string} props.period - Billing period.
- * @param {string[]} props.features - List of features.
- * @param {boolean} [props.isRecommended] - Marks plan as recommended.
- * @param {React.ReactNode} [props.button] - Button for the plan.
- */
 const Plan = ({
   title,
   description,
@@ -36,28 +36,25 @@ const Plan = ({
   button,
 }) => {
   return (
-    <div
+    <article
       className={`
         ${title === "Basic" ? styles["basic-plan"] : ""}
         ${title === "Standard" ? styles["standard-plan"] : ""}
         ${title === "Premium" ? styles["premium-plan"] : ""}
         ${styles.plan} ${isRecommended ? styles["plan--recommended"] : ""}`}
-      role="article"
-      aria-label={`${title} pricing plan`}
+      aria-label={`Pricing plan: ${title}`}
     >
       {/* Recommended Tag */}
       {isRecommended && (
-        <span
-          className={styles["plan__recommended-tag"]}
-          aria-label="Recommended plan"
-        >
-          Recommendation
-        </span>
+        <span className={styles["plan__recommended-tag"]}>Recommendation</span>
       )}
       {/* Plan Header */}
       <div className={styles["plan__header"]}>
+        {/* Plan Title */}
         <h3 className={styles["plan__title"]}>{title}</h3>
+        {/* Plan Description */}
         <p className={styles["plan__description"]}>{description}</p>
+        {/* Plan Price */}
         <div className={styles["plan__price"]}>
           <span className={styles["plan__price-amount"]}>{price}</span>
           <span className={styles["plan__price-period"]}>{period}</span>
@@ -65,17 +62,19 @@ const Plan = ({
       </div>
       {/* Plan Footer */}
       <div className={styles["plan__footer"]}>
-        <ul className={styles["plan__features"]}>
+        {/* Plan Features */}
+        <ul className={styles["plan__features"]} role="list">
           {features.map((feature, index) => (
-            <li key={index} className={styles["plan__feature"]}>
+            <li key={index} className={styles["plan__feature"]} role="listitem">
               <CheckIcon />
               {feature}
             </li>
           ))}
         </ul>
+        {/* Plan Button */}
         {button && <div className={styles["plan__button"]}>{button}</div>}
       </div>
-    </div>
+    </article>
   );
 };
 

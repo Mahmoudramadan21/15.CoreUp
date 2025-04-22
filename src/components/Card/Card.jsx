@@ -2,21 +2,21 @@ import React from "react";
 import "./Card.scss";
 import Button from "../Button/Button";
 
-/**
- * Card component for displaying content with buttons.
- * @param {Object} props
- * @param {string} [props.className] - Additional CSS classes.
- * @param {string} props.title - Card title.
- * @param {string} props.subtitle - Card subtitle.
- * @param {string} props.description - Card description.
- * @param {string} [props.role] - ARIA role for accessibility.
+/*
+ * Card component for displaying content with actions
+ * Props:
+ * - className: Additional CSS classes
+ * - title: Card title
+ * - subtitle: Card subtitle
+ * - description: Card description
+ * - role: ARIA role for accessibility
  */
 const Card = ({ className = "", title, subtitle, description, role }) => {
   return (
-    <div
+    <article
       className={`card ${className}`}
       role={role}
-      aria-label={`${title} card`}
+      aria-label={`Card for ${title}`}
     >
       {/* Card Title */}
       <h3 className="card-title">{title}</h3>
@@ -29,15 +29,15 @@ const Card = ({ className = "", title, subtitle, description, role }) => {
         <Button
           className="btn--primary btn--primary-md"
           to="register"
-          ariaLabel="Join now"
+          aria-label="Join now"
         >
           Join now
         </Button>
-        <Button to="#" ariaLabel="Read more">
+        <Button to="#" aria-label="Read more about this card">
           Read more
         </Button>
       </div>
-    </div>
+    </article>
   );
 };
 

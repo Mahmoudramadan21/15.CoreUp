@@ -1,65 +1,70 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Pricing container
 .pricing {
-  // Layout
   position: relative;
-
-  // Box Model
-  padding: vars.$spacing-large 0;
-  margin-bottom: 90px;
-
-  // Visual
-  overflow: hidden;
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  padding: vars.$spacing-large 20px;
+  background-color: vars.$color-background-white;
 }
 
-// Blob Background
-.pricing__blob {
-  // Layout
-  position: absolute;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-
-  // Box Model
-  width: clamp(800px, 100%, 1200px);
-  height: auto;
-
-  // Visual
-  opacity: 0.6;
-}
-
-// Section Title
-.pricing__title {
-  // Typography
-  text-align: center;
-
-  // Box Model
-  margin-bottom: vars.$spacing-large;
-
-  // Typography
-  font-size: vars.$font-size-title;
-  font-weight: vars.$font-weight-bold;
-  color: vars.$color-text-dark;
-}
-
-// Plans Container
 .pricing__plans {
-  // Layout
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  // Box Model
-  gap: 24px;
+  @include mixins.flex(
+    $direction: row,
+    $justify: center,
+    $align: center,
+    $gap: 24px
+  );
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+}
 
-  @include mixins.respond-to("tablet") {
-    // Layout
-    flex-direction: column;
+.pricing__blob {
+  position: absolute;
+  top: -10px;
+  left: 80px;
+  width: 265px;
+  height: 182px;
+  z-index: 1;
+}
+
+.pricing__spiral-left {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.pricing__spiral-right {
+  position: absolute;
+  top: 50%;
+  right: 33%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@include mixins.respond-to("mobile") {
+  .pricing__plans {
+    @include mixins.flex($direction: column, $gap: 30px);
+  }
+
+  .pricing__blob {
+    width: 150px;
+    height: 100px;
+    top: -50px;
+    left: 0;
+  }
+
+  .pricing__spiral-left,
+  .pricing__spiral-right {
+    width: 100px;
+    height: 100px;
   }
 }

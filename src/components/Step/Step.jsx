@@ -1,22 +1,21 @@
 import React from "react";
 import styles from "./Step.module.scss";
 
-/**
- * Step component for displaying steps in a process.
- * @param {Object} props
- * @param {string} props.icon - Icon source URL.
- * @param {string} props.title - Step title.
- * @param {string} props.description - Step description.
- * @param {string} [props.connector] - Connector image source URL.
+/*
+ * Step Component to display each step in "How It Works" section
+ * Props:
+ * - icon: Step icon (image source)
+ * - title: Step title
+ * - description: Step description
+ * - connector: Connector image between steps (optional)
  */
 const Step = ({ icon, title, description, connector }) => {
   return (
-    <div
+    <article
       className={`${styles.step} ${
         title === "Complete your profile" ? styles["step--document"] : ""
       }`}
-      role="listitem"
-      aria-label={`${title} step`}
+      aria-label={`Step: ${title}`}
     >
       {/* Step Icon */}
       <div
@@ -28,10 +27,10 @@ const Step = ({ icon, title, description, connector }) => {
       >
         <img
           src={icon}
-          alt={`${title} icon`}
+          alt={`${title} step icon`}
           loading="lazy"
-          width="24"
-          height="24"
+          width="60"
+          height="60"
         />
       </div>
       {/* Step Title */}
@@ -48,12 +47,13 @@ const Step = ({ icon, title, description, connector }) => {
               ? styles["step__connector--reversed"]
               : ""
           }`}
-          loading="lazy"
-          width="50"
+          width="100"
           height="50"
+          loading="lazy"
+          aria-hidden="true"
         />
       )}
-    </div>
+    </article>
   );
 };
 

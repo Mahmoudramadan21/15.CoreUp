@@ -1,103 +1,85 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Footer container
+// Footer styles
 .footer {
-  // Box Model
   margin-top: vars.$spacing-medium;
   padding: 60px 0 40px;
-
-  // Visual
-  background-color: vars.$footer-bg;
   color: vars.$text-light-gray;
+  background-color: vars.$footer-bg;
 }
 
+// Footer container
 .footer__container {
-  // Box Model
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
   @include mixins.respond-to("mobile") {
-    // Typography
     text-align: center;
   }
 }
 
+// Footer columns grid
 .footer__columns {
-  // Layout
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
-  // Box Model
   gap: 40px;
   margin-bottom: 20px;
 
   @include mixins.respond-to("tablet") {
-    // Layout
     grid-template-columns: repeat(2, 1fr);
   }
 
   @include mixins.respond-to("mobile") {
-    // Layout
     grid-template-columns: 1fr;
   }
 }
 
+// Footer column title
 .footer__column-title {
-  // Typography
+  margin-bottom: 20px;
   font-size: 0.9rem;
   font-weight: vars.$font-weight-medium;
   color: vars.$title-gray;
   text-transform: uppercase;
-
-  // Box Model
-  margin-bottom: 20px;
 }
 
+// Footer column list
 .footer__column-list {
-  // Visual
   list-style: none;
-
-  // Box Model
   padding: 0;
 }
 
+// Footer column list item
 .footer__column-item {
-  // Box Model
   margin-bottom: 20px;
 }
 
+// Footer column link
 .footer__column-link {
-  // Typography
   font-size: 0.95rem;
   color: vars.$text-light-gray;
   text-decoration: none;
-
-  // Transitions
   transition: color 0.3s ease;
 
   &:hover {
-    // Typography
     color: vars.$white;
   }
 
   &:focus-visible {
-    // Box Model
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Newsletter form
 .footer__newsletter-form {
-  // Layout
 }
 
+// Newsletter description (hidden for screen readers)
 .footer__newsletter-description {
-  // Layout
   position: absolute;
-
-  // Box Model
   width: 1px;
   height: 1px;
   padding: 0;
@@ -107,248 +89,198 @@
   border: 0;
 }
 
+// Newsletter input wrapper
 .footer__newsletter-input-wrapper {
-  // Layout
   display: flex;
   align-items: center;
-
-  // Box Model
   margin-bottom: 20px;
   border: 1px solid vars.$white;
   border-radius: 4px;
 }
 
+// Newsletter input
 .footer__newsletter-input {
-  // Layout
   flex-grow: 1;
-
-  // Box Model
   padding: 10px 15px;
-
-  // Typography
-  color: vars.$white;
   font-size: 0.9rem;
-
-  // Visual
+  color: vars.$white;
   background-color: transparent;
   border: none;
 
   &::placeholder {
-    // Typography
     color: vars.$text-light-gray;
   }
 
   &:focus {
-    // Visual
     outline: none;
     border-color: vars.$blue;
   }
 }
 
+// Newsletter submit button
 .footer__newsletter-button {
-  // Box Model
   padding: 10px 15px;
-  border-radius: 0 4px 4px 0;
-
-  // Typography
-  color: vars.$white;
   font-size: 1.2rem;
-
-  // Visual
+  color: vars.$white;
   background-color: vars.$blue;
   border: none;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
-
-  // Transitions
   transition: background-color 0.3s ease;
 
   &:hover {
-    // Visual
     background-color: vars.$blue-dark;
     color: vars.$white;
   }
 
   &:focus-visible {
-    // Box Model
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Newsletter checkbox container
 .footer__newsletter-checkbox {
-  // Layout
   display: flex;
   align-items: flex-start;
-
-  // Box Model
   gap: 8px;
 }
 
+// Newsletter checkbox input
 .footer__newsletter-checkbox-input {
-  // Box Model
   width: 16px;
   height: 16px;
-
-  // Visual
   accent-color: vars.$white;
   background-color: transparent;
+
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
 }
 
+// Newsletter checkbox text
 .footer__newsletter-checkbox-text {
-  // Typography
   font-size: 0.85rem;
   color: vars.$text-light-gray;
 }
 
+// Newsletter "Read more" link
 .footer__newsletter-link {
-  // Typography
   color: vars.$blue;
   text-decoration: none;
-
-  // Transitions
   transition: color 0.3s ease;
 
   &:hover {
-    // Typography
     color: vars.$blue-dark;
   }
 
   &:focus-visible {
-    // Box Model
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Footer bottom section (contact and copyright)
 .footer__bottom {
-  // Layout
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  // Box Model
   margin-bottom: 40px;
+  padding: 3rem 0;
   border: 1px solid #94a3b829;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
   border-right: none;
   border-left: none;
 
   @include mixins.respond-to("mobile") {
-    // Layout
     flex-direction: column;
-
-    // Box Model
     gap: 20px;
-
-    // Typography
     text-align: center;
   }
 }
 
+// Contact info container
 .footer__contact {
-  // Layout
   display: flex;
   align-items: center;
-
-  // Box Model
   gap: 40px;
 
   @include mixins.respond-to("tablet") {
-    // Layout
     flex-direction: column;
-
-    // Box Model
     gap: 20px;
   }
 }
 
+// Follow us section
 .footer__contact-follow {
-  // Layout
   display: flex;
   align-items: center;
-
-  // Box Model
   gap: 12px;
 }
 
+// Follow us label
 .footer__contact-label {
-  // Typography
   font-size: 0.95rem;
   color: vars.$text-light-gray;
 }
 
+// Social media icon (LinkedIn)
 .footer__contact-icon {
-  // Typography
   font-size: 1.2rem;
   color: vars.$text-light-gray;
-
-  // Transitions
   transition: color 0.3s ease;
 
   img {
-    // Box Model
     width: 20px;
     height: 20px;
   }
 
   &:hover {
-    // Typography
     color: vars.$white;
   }
 
   &:focus-visible {
-    // Box Model
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Contact emails container
 .footer__contact-emails {
-  // Layout
   display: flex;
-
-  // Box Model
   gap: 20px;
 
   @include mixins.respond-to("tablet") {
-    // Layout
     flex-direction: column;
-
-    // Box Model
     gap: 10px;
   }
 }
 
+// Contact email link
 .footer__contact-email {
-  // Typography
   font-size: 0.95rem;
   color: vars.$text-light-gray;
   text-decoration: none;
-
-  // Transitions
   transition: color 0.3s ease;
 
   &:hover {
-    // Typography
     color: vars.$white;
   }
 
   &:focus-visible {
-    // Box Model
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Copyright notice
 .footer__copyright {
-  // Typography
   font-size: 0.95rem;
   color: vars.$text-light-gray;
 }
 
+// Disclaimer text
 .footer__disclaimer {
-  // Typography
   font-size: 0.85rem;
   color: vars.$text-light-gray;
   line-height: 1.5;

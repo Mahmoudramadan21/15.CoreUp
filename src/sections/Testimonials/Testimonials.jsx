@@ -39,7 +39,7 @@ const Testimonials = () => {
     // Section container for Testimonials
     <section className={styles.testimonials}>
       {/* Section title */}
-      <h2 className={styles["testimonials__title"]}>Clients Testimonial</h2>
+      <h2 className={styles["testimonials__title"]}>Client Testimonial</h2>
       {/* Testimonials container */}
       <div className={styles["testimonials__list"]}>
         <Suspense fallback={<div>Loading...</div>}>

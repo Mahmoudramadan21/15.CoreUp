@@ -1,86 +1,61 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Base button styles
+// Default button styles
 .btn {
-  // Layout
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
-  white-space: nowrap;
-
-  // Box Model
   box-sizing: content-box;
-  padding-left: 20px;
-  padding-right: 20px;
+  width: fit-content;
   height: 50px;
-
-  // Typography
+  padding: 0 20px;
+  white-space: nowrap;
+  font-weight: bold;
   color: vars.$color-text-dark;
-  font-weight: vars.$font-weight-bold;
-
-  // Visual
   background-color: transparent;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 
-  // Primary variant
+  // Accessibility: Focus styles for keyboard navigation
+  &:focus-visible {
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
+  }
+
+  // Primary button variant
   &--primary {
-    // Box Model
-    padding-left: 40px;
-    padding-right: 40px;
-
-    // Typography
-    color: vars.$white;
-
-    // Visual
+    padding: 0 40px;
+    color: #fff;
     background-color: vars.$color-primary;
-
-    // Transitions
     transition: background-color 0.3s ease;
 
     &:hover {
-      // Visual
       background-color: vars.$color-primary-hover;
     }
 
-    // Medium size
+    // Medium size modifier
     &-md {
-      // Box Model
-      padding-left: 50px;
-      padding-right: 50px;
+      padding: 0 50px;
     }
 
-    // Large size
+    // Large size modifier
     &-lg {
-      // Box Model
-      padding-left: 80px;
-      padding-right: 80px;
+      padding: 0 80px;
     }
   }
 
-  // Disabled state
+  // Disabled button state
   &--disabled {
-    // Typography
     color: vars.$color-background-white;
-
-    // Visual
     background-color: vars.$color-text-gray;
-    cursor: not-allowed;
     opacity: 0.6;
+    cursor: not-allowed;
 
     &:hover {
-      // Visual
       background-color: vars.$color-text-gray;
     }
-  }
-
-  // Focus styles for accessibility
-  &:focus-visible {
-    // Box Model
-    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
-    outline-offset: vars.$focus-outline-offset;
   }
 }

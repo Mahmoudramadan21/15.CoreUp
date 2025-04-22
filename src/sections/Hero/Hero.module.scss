@@ -1,91 +1,63 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Hero container
+// Hero section styles
 .hero {
-  // Layout
   display: grid;
-  grid-template-columns: 34% 45%;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  padding: 4rem 0;
+  gap: 2rem;
 
-  // Box Model
-  gap: 24px;
-  margin-top: 90px;
-  margin-bottom: 90px;
-
-  &__content {
-    // Layout
-    display: flex;
-    flex-direction: column;
-
-    // Box Model
-    gap: 24px;
-  }
-
-  &__title {
-    // Typography
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    color: vars.$color-text-dark;
-
-    .highlight {
-      // Layout
-      position: relative;
-
-      // Typography
-      color: vars.$color-primary;
-
-      @include mixins.respond-to("tablet", "min") {
-        &::after {
-          // Layout
-          position: absolute;
-          bottom: 0;
-          right: -16px;
-
-          // Box Model
-          width: 6px;
-          height: 42px;
-
-          // Visual
-          content: "";
-          background-color: vars.$color-primary;
-        }
-      }
-    }
-  }
-
-  &__subtitle {
-    // Typography
-    color: vars.$color-text-gray-muted;
-    line-height: 1.6;
-  }
-
-  &__graphic img {
-    // Box Model
-    width: clamp(240px, 100%, 540px);
-    height: auto;
-  }
-}
-
-@include mixins.respond-to("tablet") {
-  .hero {
-    // Layout
-    grid-template-columns: 45% 45%;
-  }
-}
-
-@include mixins.respond-to("mobile") {
-  .hero {
-    // Layout
-    grid-template-columns: auto;
+  @include mixins.respond-to("tablet") {
+    grid-template-columns: 1fr;
     text-align: center;
+  }
+}
 
-    // Box Model
-    gap: 48px;
+// Hero content
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-    &__content {
-      // Layout
-      align-items: center;
-    }
+  @include mixins.respond-to("tablet") {
+    align-items: center;
+  }
+}
+
+// Hero title
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-text-dark;
+
+  .highlight {
+    color: vars.$color-primary;
+  }
+}
+
+// Hero subtitle
+.hero__subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: vars.$color-text-gray;
+  max-width: 500px;
+
+  @include mixins.respond-to("tablet") {
+    max-width: 100%;
+  }
+}
+
+// Hero graphic
+.hero__graphic {
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  @include mixins.respond-to("tablet") {
+    display: none;
   }
 }
