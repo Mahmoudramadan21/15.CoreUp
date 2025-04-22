@@ -1,20 +1,17 @@
 import React, { Suspense } from "react";
 import styles from "./HowItWorks.module.scss";
-
-// Importing icons
 import userIcon from "../../assets/icons/user.svg";
 import documentIcon from "../../assets/icons/document.svg";
 import searchIcon from "../../assets/icons/search.svg";
 import envelopeIcon from "../../assets/icons/envelope.svg";
-
-// Importing connectors
 import connectorLine from "../../assets/icons/connector-line.svg";
 import connectorReversedLine from "../../assets/icons/connector-reversed-line.svg";
 
-// Lazy load the Step component for better performance
 const Step = React.lazy(() => import("../../components/Step/Step"));
 
-// Data for the steps (you can fetch this from an API)
+/**
+ * HowItWorks section explaining the process.
+ */
 const stepsData = [
   {
     icon: userIcon,
@@ -47,16 +44,13 @@ const stepsData = [
 
 const HowItWorks = () => {
   return (
-    // Section container for "How It Works"
     <section className={styles["how-it-works"]}>
-      {/* Section title */}
+      {/* Section Title */}
       <h2 className={styles["how-it-works__title"]}>How CoreUp Work</h2>
-      {/* Steps container */}
-      <div className={styles["how-it-works__steps"]}>
-        {/* Use Suspense for lazy loading */}
+      {/* Steps Container */}
+      <div className={styles["how-it-works__steps"]} role="list">
         <Suspense fallback={<div>Loading...</div>}>
           {stepsData.map((step) => (
-            // Render each step using Step component
             <Step
               key={step.title}
               icon={step.icon}

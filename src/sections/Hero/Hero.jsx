@@ -3,7 +3,10 @@ import styles from "./Hero.module.scss";
 import Button from "../../components/Button/Button";
 import heroGraphics from "../../assets/hero.jpg";
 
-export default function Hero() {
+/**
+ * Hero section for the homepage.
+ */
+const Hero = () => {
   return (
     <section
       className={`${styles.hero} container`}
@@ -22,7 +25,7 @@ export default function Hero() {
         <Button
           className="btn--primary btn--primary-lg"
           to="register"
-          aria-label="Join now"
+          ariaLabel="Join now"
         >
           Join now
         </Button>
@@ -32,8 +35,12 @@ export default function Hero() {
           src={heroGraphics}
           alt="Illustration of a startup workspace"
           loading="lazy"
+          width="540"
+          height="400"
         />
       </div>
     </section>
   );
-}
+};
+
+export default React.memo(Hero);

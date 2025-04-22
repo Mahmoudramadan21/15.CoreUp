@@ -1,60 +1,112 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Testimonial container
 .testimonial {
-  @include mixins.flex($direction: column, $align: start);
+  // Layout
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  // Box Model
   padding: vars.$spacing-medium;
   width: 100%;
   max-width: 350px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  // Visual
   background-color: vars.$color-background-white;
   position: relative;
 }
 
+// Rating Stars
 .testimonial__stars {
-  @include mixins.flex($gap: 5px);
+  // Layout
+  display: flex;
+
+  // Box Model
+  gap: 5px;
   margin-bottom: vars.$spacing-medium;
 }
 
+.testimonial__star {
+  // Box Model
+  width: 16px;
+  height: 16px;
+}
+
+// Testimonial Text
 .testimonial__text {
+  // Box Model
+  margin-bottom: vars.$spacing-medium;
+
+  // Typography
   font-size: vars.$font-size-body;
   line-height: 1.5;
   color: vars.$color-text-gray;
-  margin-bottom: vars.$spacing-medium;
 }
 
+// Testimonial Footer
 .testimonial__footer {
-  @include mixins.flex($justify: space-between, $align: space-between);
+  // Layout
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+
+  // Box Model
   margin-top: vars.$spacing-medium;
   width: 100%;
 }
 
 .testimonial__user {
-  @include mixins.flex($direction: row, $gap: 10px);
+  // Layout
+  display: flex;
+  flex-direction: row;
+
+  // Box Model
+  gap: 10px;
   margin-bottom: vars.$spacing-medium;
 }
 
 .testimonial__avatar {
+  // Box Model
   width: vars.$avatar-size;
   height: vars.$avatar-size;
+
+  // Visual
   border-radius: 50%;
   object-fit: cover;
 }
 
 .testimonial__user-info {
-  @include mixins.flex($direction: column, $align: start);
+  // Layout
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  // Typography
   text-align: left;
 }
 
 .testimonial__name {
+  // Box Model
   margin-bottom: 4px;
+
+  // Typography
   font-size: vars.$font-size-base;
   font-weight: vars.$font-weight-medium;
   color: vars.$color-text-dark;
 }
 
 .testimonial__role {
+  // Typography
   font-size: vars.$font-size-body;
   color: vars.$color-text-gray;
+}
+
+.testimonial__quote {
+  // Box Model
+  width: 24px;
+  height: 24px;
 }

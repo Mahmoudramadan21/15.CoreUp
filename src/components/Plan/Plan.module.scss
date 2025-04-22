@@ -1,10 +1,14 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Plan container
 .plan {
+  // Layout
   position: relative;
   display: flex;
   flex-direction: column;
+
+  // Box Model
   gap: 1.4rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -12,92 +16,136 @@
   width: 100%;
   min-height: 520px;
   max-width: 350px;
+
+  // Typography
   text-align: left;
+
+  // Visual
   background-color: vars.$color-background-white;
   z-index: 2;
 
+  // Recommended variant
   &--recommended {
+    // Visual
     transform: scale(1.05);
   }
 }
 
+// Plan Header
 .plan__header {
+  // Box Model
   padding: 1.8rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+// Recommended Tag
 .plan__recommended-tag {
+  // Layout
   position: absolute;
   top: -15px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
+
+  // Box Model
   padding: 7px 15px;
+
+  // Typography
   font-size: 0.9rem;
   font-weight: vars.$font-weight-medium;
   text-align: center;
-  background-color: vars.$color-primary;
   color: vars.$color-background-white;
+
+  // Visual
+  background-color: vars.$color-primary;
   border-radius: vars.$border-radius-small;
 }
 
+// Plan Title
 .plan__title {
+  // Typography
   color: vars.$color-text-dark;
   font-weight: vars.$font-weight-medium;
 }
 
+// Plan Description
 .plan__description {
+  // Box Model
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
+
+  // Typography
   color: vars.$color-text;
   font-size: 0.85rem;
   font-weight: normal;
 }
 
+// Plan Price
 .plan__price {
+  // Layout
+  position: relative;
+
+  // Typography
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: vars.$font-weight-medium;
 
-  position: relative;
-
   &-amount {
+    // Box Model
     margin-right: vars.$spacing-small;
+
+    // Typography
     color: vars.$color-primary;
     font-weight: vars.$font-weight-medium;
   }
 
   &-period {
+    // Typography
     font-size: 1rem;
     color: vars.$color-text-gray;
   }
 }
 
+// Plan Footer
 .plan__footer {
+  // Box Model
   padding: 0.7rem 1.8rem 1rem;
 }
 
+// Plan Features
 .plan__features {
+  // Layout
   display: flex;
   flex-direction: column;
+
+  // Box Model
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .plan__feature {
+  // Layout
   display: flex;
   align-items: center;
+
+  // Box Model
   gap: 8px;
+
+  // Typography
   color: vars.$color-text-gray;
   font-size: 0.94rem;
 }
 
 .plan__check {
+  // Box Model
   width: 16px;
   height: 16px;
+
+  // Typography
   color: vars.$color-primary;
 }
 
 .plan__button {
+  // Layout
   display: flex;
   justify-content: flex-start;
 }

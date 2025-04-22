@@ -1,30 +1,52 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// HowItWorks container
 .how-it-works {
-  @include mixins.flex($direction: column, $justify: center, $align: center);
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Box Model
   padding: vars.$spacing-large 20px;
+
+  // Visual
   background-color: vars.$color-background-light;
 }
 
+// Section Title
 .how-it-works__title {
+  // Typography
   text-align: center;
+
+  // Box Model
   margin-bottom: vars.$spacing-large;
+
+  // Typography
   font-size: vars.$font-size-title;
   font-weight: vars.$font-weight-bold;
   color: vars.$color-text-dark;
 }
 
+// Steps Container
 .how-it-works__steps {
-  @include mixins.flex(
-    $direction: row,
-    $justify: space-between,
-    $align: center
-  );
+  // Layout
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  // Box Model
   width: 100%;
   max-width: 1200px;
 
   @include mixins.respond-to("mobile") {
-    @include mixins.flex($direction: column, $justify: center, $align: center);
+    // Layout
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

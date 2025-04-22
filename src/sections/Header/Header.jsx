@@ -4,13 +4,18 @@ import styles from "./Header.module.scss";
 import logo from "../../assets/logo.png";
 import Button from "../../components/Button/Button";
 
+/**
+ * Header component with navigation and actions.
+ */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Navigation links data
   const navLinks = [
     { name: "Startups", path: "/startups" },
     { name: "Investors", path: "/investors" },
@@ -32,7 +37,7 @@ const Header = () => {
             src={logo}
             alt="COREUP Logo"
             loading="lazy"
-            width="24"
+            width="150"
             height="24"
           />
         </Link>
@@ -56,10 +61,8 @@ const Header = () => {
                       isActive ? styles["header__nav-link--active"] : ""
                     }`
                   }
-                  aria-current={({ isActive }) =>
-                    isActive ? "page" : undefined
-                  }
-                  onClick={() => setIsMenuOpen(false)} // Close menu on link click (mobile)
+                  aria-current={(isActive) => (isActive ? "page" : undefined)}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </NavLink>
@@ -67,14 +70,14 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Actions (Join now & Login) - Visible only on mobile inside the menu */}
+          {/* Actions for Mobile */}
           <div
             className={`${styles["header__actions"]} ${styles["header__actions--mobile"]}`}
           >
             <Button
               className="btn--primary"
               to="/join"
-              aria-label="Join now"
+              ariaLabel="Join now"
               onClick={() => setIsMenuOpen(false)}
             >
               Join now
@@ -83,21 +86,21 @@ const Header = () => {
               to="/login"
               className={styles["header__login"]}
               onClick={() => setIsMenuOpen(false)}
-              aria-label="Login"
+              aria-label="Login to COREUP"
             >
               Login
             </Link>
           </div>
         </nav>
 
-        {/* Actions (Join now & Login) - Visible on desktop */}
+        {/* Actions for Desktop */}
         <div
           className={`${styles["header__actions"]} ${styles["header__actions--desktop"]}`}
         >
           <Button
             className="btn--primary"
             to="/join"
-            aria-label="Join now"
+            ariaLabel="Join now"
             onClick={() => setIsMenuOpen(false)}
           >
             Join now
@@ -106,13 +109,13 @@ const Header = () => {
             to="/login"
             className={styles["header__login"]}
             onClick={() => setIsMenuOpen(false)}
-            aria-label="Login"
+            aria-label="Login to COREUP"
           >
             Login
           </Link>
         </div>
 
-        {/* Hamburger Menu (for mobile) */}
+        {/* Hamburger Menu for Mobile */}
         <button
           className={styles["header__hamburger"]}
           onClick={toggleMenu}
@@ -129,4 +132,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

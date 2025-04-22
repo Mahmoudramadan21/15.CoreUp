@@ -1,46 +1,77 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// CTA container
 .cta {
-  @include mixins.flex($direction: column, $justify: center, $align: center);
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Box Model
   padding: vars.$spacing-large 20px;
   border-radius: 20px;
-  background: linear-gradient(#1877f2 0%, #023275 100%);
+
+  // Typography
   text-align: center;
+
+  // Visual
+  background: linear-gradient(#1877f2 0%, #023275 100%);
 }
 
+// CTA Content
 .cta__content {
-  @include mixins.flex($direction: column, $justify: center, $align: center);
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Box Model
   max-width: 800px;
   margin: 0 auto;
 }
 
+// CTA Title
 .cta__title {
+  // Box Model
   margin-bottom: vars.$spacing-medium;
+
+  // Typography
   font-size: vars.$font-size-title;
   font-weight: vars.$font-weight-bold;
   color: vars.$color-background-white;
 }
 
+// CTA Description
 .cta__description {
+  // Box Model
   margin-bottom: vars.$spacing-large;
   max-width: 520px;
+
+  // Typography
   font-size: vars.$font-size-body;
   font-weight: vars.$font-weight-medium;
   color: #ffffffcc;
+
+  // Visual
   opacity: 0.8;
 }
 
 @include mixins.respond-to("mobile") {
   .cta {
+    // Box Model
     padding: vars.$spacing-medium 15px;
   }
 
   .cta__title {
+    // Typography
     font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
   }
 
   .cta__description {
+    // Typography
     font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
   }
 }

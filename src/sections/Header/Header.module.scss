@@ -1,54 +1,76 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Header container
 .header {
   // Layout
   position: sticky;
   top: 0;
   z-index: 100;
+
   // Box Model
   padding: vars.$spacing-medium 0;
+
   // Visual
   background-color: vars.$color-background-white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+// Header Container
 .header__container {
   // Layout
-  @include mixins.flex($justify: space-between, $align: center);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   // Box Model
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
   @include mixins.respond-to("tablet") {
-    @include mixins.flex($justify: space-between, $align: center);
+    // Layout
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
+// Header Logo
 .header__logo {
-  // Typography
+  // Visual
   text-decoration: none;
 
   img {
+    // Box Model
     width: 150px;
-    height: 100%;
+    height: 24px;
   }
 }
 
+// Hamburger Button
 .header__hamburger {
   // Layout
-  display: none; // Hidden on desktop
+  display: none;
+
   // Box Model
   padding: 8px;
+
   // Visual
   background: none;
   border: none;
   cursor: pointer;
 
   @include mixins.respond-to("tablet") {
+    // Layout
     display: block;
-    order: 2; // Move to the right on tablet and smaller
+    order: 2;
+  }
+
+  &:focus-visible {
+    // Box Model
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
   }
 }
 
@@ -58,11 +80,16 @@
   color: vars.$color-text-dark;
 }
 
+// Navigation
 .header__nav {
   // Layout
-  @include mixins.flex($align: center, $gap: 30px);
+  display: flex;
+  align-items: center;
   flex-grow: 1;
-  justify-content: center; // Center the nav on desktop
+  justify-content: center;
+
+  // Box Model
+  gap: 30px;
 
   @include mixins.respond-to("tablet") {
     // Layout
@@ -72,37 +99,47 @@
     right: 0;
     flex-direction: column;
     gap: 0;
-    // Typography
     text-align: center;
+
     // Visual
     background-color: vars.$color-background-white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-height: 0;
     overflow: hidden;
+
+    // Transitions
     transition: max-height 0.3s ease;
 
     &--open {
-      max-height: 480px; // Adjust based on content height
+      // Box Model
+      max-height: 480px;
     }
   }
 }
 
 .header__nav-list {
   // Layout
-  @include mixins.flex($gap: 30px);
+  display: flex;
+
+  // Box Model
+  gap: 30px;
 
   @include mixins.respond-to("tablet") {
+    // Layout
     flex-direction: column;
+
+    // Box Model
     gap: 20px;
     padding: 20px;
   }
 }
 
 .header__nav-item {
-  // Layout
+  // Visual
   list-style: none;
 
   @include mixins.respond-to("tablet") {
+    // Box Model
     width: 100%;
   }
 }
@@ -113,30 +150,49 @@
   font-size: 1rem;
   font-weight: vars.$font-weight-medium;
   text-decoration: none;
-  // Behavior
+
+  // Transitions
   transition: color 0.3s ease;
 
   &:hover {
+    // Typography
     color: vars.$color-primary;
   }
 
   &--active {
+    // Typography
     color: vars.$color-primary;
   }
 
   @include mixins.respond-to("tablet") {
     // Box Model
     padding: 10px 0;
+
+    // Layout
     display: block;
+  }
+
+  &:focus-visible {
+    // Box Model
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
   }
 }
 
+// Actions (Join now & Login)
 .header__actions {
   // Layout
-  @include mixins.flex($align: center, $gap: 20px);
+  display: flex;
+  align-items: center;
+
+  // Box Model
+  gap: 20px;
 
   @include mixins.respond-to("tablet") {
+    // Layout
     flex-direction: column;
+
+    // Box Model
     width: 100%;
     padding: 20px;
     gap: 20px;
@@ -145,15 +201,18 @@
 
 .header__actions--desktop {
   @include mixins.respond-to("tablet") {
-    display: none; // Hide on tablet and smaller
+    // Layout
+    display: none;
   }
 }
 
 .header__actions--mobile {
-  display: none; // Hidden on desktop
+  // Layout
+  display: none;
 
   @include mixins.respond-to("tablet") {
-    display: flex; // Show inside the menu on tablet and smaller
+    // Layout
+    display: flex;
   }
 }
 
@@ -163,15 +222,26 @@
   font-size: 1rem;
   font-weight: vars.$font-weight-medium;
   text-decoration: none;
-  // Behavior
+
+  // Transitions
   transition: color 0.3s ease;
 
   &:hover {
+    // Typography
     color: vars.$color-primary;
   }
 
   @include mixins.respond-to("tablet") {
+    // Box Model
     padding: 10px 0;
+
+    // Typography
     text-align: center;
+  }
+
+  &:focus-visible {
+    // Box Model
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
   }
 }

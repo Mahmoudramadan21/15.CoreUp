@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 
+/**
+ * Footer component with navigation, newsletter, and contact info.
+ */
 const Footer = () => {
-  const newsletterCheckboxId = "newsletter-consent"; // Unique ID for the checkbox
+  const newsletterCheckboxId = "newsletter-consent";
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} role="contentinfo">
       <div className={styles["footer__container"]}>
         {/* Main Columns */}
         <div className={styles["footer__columns"]}>
-          {/* Column 1: Platform */}
+          {/* Platform Column */}
           <div className={styles["footer__column"]}>
             <h3 className={styles["footer__column-title"]}>Platform</h3>
             <ul className={styles["footer__column-list"]}>
@@ -72,7 +75,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 2: Resources */}
+          {/* Resources Column */}
           <div className={styles["footer__column"]}>
             <h3 className={styles["footer__column-title"]}>Resources</h3>
             <ul className={styles["footer__column-list"]}>
@@ -97,7 +100,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Company Column */}
           <div className={styles["footer__column"]}>
             <h3 className={styles["footer__column-title"]}>Company</h3>
             <ul className={styles["footer__column-list"]}>
@@ -140,7 +143,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Subscribe Newsletter */}
+          {/* Newsletter Column */}
           <div className={styles["footer__column"]}>
             <h3 className={styles["footer__column-title"]}>
               Subscribe newsletter
@@ -195,7 +198,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact and Copyright Section */}
+        {/* Contact and Copyright */}
         <div className={styles["footer__bottom"]}>
           <div className={styles["footer__contact"]}>
             <div className={styles["footer__contact-follow"]}>

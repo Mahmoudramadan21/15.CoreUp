@@ -1,51 +1,86 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Base button styles
 .btn {
+  // Layout
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  white-space: nowrap;
+
+  // Box Model
   box-sizing: content-box;
-  @include mixins.flex(center, center);
   padding-left: 20px;
   padding-right: 20px;
-  width: fit-content;
   height: 50px;
-  white-space: nowrap;
+
+  // Typography
   color: vars.$color-text-dark;
-  font-weight: bold;
+  font-weight: vars.$font-weight-bold;
+
+  // Visual
   background-color: transparent;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
 
+  // Primary variant
   &--primary {
+    // Box Model
     padding-left: 40px;
     padding-right: 40px;
-    color: #fff;
+
+    // Typography
+    color: vars.$white;
+
+    // Visual
     background-color: vars.$color-primary;
+
+    // Transitions
     transition: background-color 0.3s ease;
 
     &:hover {
+      // Visual
       background-color: vars.$color-primary-hover;
     }
 
+    // Medium size
     &-md {
+      // Box Model
       padding-left: 50px;
       padding-right: 50px;
     }
 
+    // Large size
     &-lg {
+      // Box Model
       padding-left: 80px;
       padding-right: 80px;
     }
   }
 
+  // Disabled state
   &--disabled {
+    // Typography
+    color: vars.$color-background-white;
+
+    // Visual
     background-color: vars.$color-text-gray;
     cursor: not-allowed;
-    color: vars.$color-background-white;
     opacity: 0.6;
 
     &:hover {
+      // Visual
       background-color: vars.$color-text-gray;
     }
+  }
+
+  // Focus styles for accessibility
+  &:focus-visible {
+    // Box Model
+    outline: vars.$focus-outline-width solid vars.$focus-outline-color;
+    outline-offset: vars.$focus-outline-offset;
   }
 }

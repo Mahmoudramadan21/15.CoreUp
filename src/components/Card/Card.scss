@@ -1,44 +1,68 @@
 @use "../../styles/variables" as vars;
 
+// Card container
 .card {
+  // Layout
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+
+  // Box Model
   flex: 1;
   gap: 1.4rem;
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: 1rem;
 
   @media (max-width: 768px) {
+    // Layout
     align-items: center;
+
+    // Box Model
     gap: 12px;
+
+    // Typography
     text-align: center;
   }
 
+  // Card Title
   &-title {
+    // Typography
     color: vars.$color-text;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
   }
 
+  // Card Subtitle
   &-subtitle {
+    // Typography
     color: vars.$color-text;
     font-size: 0.85rem;
-    font-weight: bold;
+    font-weight: vars.$font-weight-bold;
   }
 
+  // Card Description
   &-description {
+    // Box Model
     max-width: 410px;
+
+    // Typography
     color: vars.$color-text-gray-muted;
     font-size: 0.94rem;
     line-height: 1.4;
   }
 
+  // Card Buttons
   &-buttons {
+    // Layout
     display: flex;
     align-items: center;
+
+    // Box Model
     gap: 6px;
   }
 
+  // Startup variant
   &--startup {
+    // Visual
     background: linear-gradient(
       to right,
       rgba(191, 219, 254, 0.3) 0%,
@@ -47,7 +71,9 @@
     );
   }
 
+  // Investor variant
   &--investor {
+    // Visual
     background: linear-gradient(
       to right,
       rgba(255, 255, 255, 1) 0%,

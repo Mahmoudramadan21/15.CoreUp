@@ -1,36 +1,77 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Success container
 .success {
-  margin-top: 90px;
+  // Layout
+  display: grid;
+  grid-template-columns: 34% 45%;
+  justify-content: space-between;
+  align-items: center;
+
+  // Box Model
+  gap: 24px;
   margin-bottom: 90px;
+}
 
-  &__title {
-    font-size: clamp(1.3rem, 2vw, 2rem);
-    color: vars.$color-text-dark;
-    text-align: center;
+// Success Content
+.success__content {
+  // Layout
+  display: flex;
+  flex-direction: column;
 
-    &_highlight {
-      color: vars.$color-primary;
-    }
-  }
+  // Box Model
+  gap: 24px;
+}
 
-  &__subtitle {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    color: vars.$color-text-gray-muted;
-    text-align: center;
+// Section Title
+.success__title {
+  // Typography
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: vars.$color-text-dark;
+}
 
-    @include mixins.respond-to("mobile", "min") {
-      margin-bottom: 4rem;
-    }
-  }
+// Cards Container
+.success__cards {
+  // Layout
+  display: flex;
+  flex-direction: column;
 
-  &__cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  // Box Model
+  gap: 24px;
+
+  @include mixins.respond-to("mobile") {
+    // Layout
     align-items: center;
-    gap: 24px;
+  }
+}
+
+// Success Image
+.success__image img {
+  // Box Model
+  width: clamp(240px, 100%, 540px);
+  height: auto;
+}
+
+@include mixins.respond-to("tablet") {
+  .success {
+    // Layout
+    grid-template-columns: 45% 45%;
+  }
+}
+
+@include mixins.respond-to("mobile") {
+  .success {
+    // Layout
+    grid-template-columns: auto;
+    text-align: center;
+
+    // Box Model
+    gap: 48px;
+
+    &__content {
+      // Layout
+      align-items: center;
+    }
   }
 }

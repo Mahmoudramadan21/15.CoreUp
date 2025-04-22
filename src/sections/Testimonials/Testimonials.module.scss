@@ -1,42 +1,42 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@use "../../styles/variables" as vars;
+@use "../../styles/mixins";
 
+// Testimonials container
 .testimonials {
-  @include flex($direction: column);
-  padding: $spacing-large 20px;
-  background-color: $color-background-white;
+  // Box Model
+  padding: vars.$spacing-large 0;
+  margin-bottom: 90px;
 }
 
+// Section Title
 .testimonials__title {
+  // Typography
   text-align: center;
-  margin-bottom: $spacing-large;
-  font-size: $font-size-title;
-  font-weight: $font-weight-medium;
-  color: $color-text-dark;
+
+  // Box Model
+  margin-bottom: vars.$spacing-large;
+
+  // Typography
+  font-size: vars.$font-size-title;
+  font-weight: vars.$font-weight-bold;
+  color: vars.$color-text-dark;
 }
 
+// Testimonials List
 .testimonials__list {
-  @include flex($gap: 20px);
+  // Layout
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Box Model
+  gap: 24px;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
 
-  @include respond-to("mobile") {
-    @include flex($direction: column, $gap: 30px);
+  @include mixins.respond-to("tablet") {
+    // Layout
+    flex-direction: column;
   }
-}
-
-.testimonials__pagination {
-  @include flex($gap: 10px);
-  margin-top: $spacing-large;
-}
-
-.testimonials__dot {
-  width: $dot-size;
-  height: $dot-size;
-  background-color: $color-dot-inactive;
-  border-radius: 50%;
-}
-
-.testimonials__dot--active {
-  background-color: $color-dot-active;
 }

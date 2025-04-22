@@ -1,15 +1,24 @@
 import React from "react";
 import styles from "./Step.module.scss";
 
-// Step Component to display each step in "How It Works" section
+/**
+ * Step component for displaying steps in a process.
+ * @param {Object} props
+ * @param {string} props.icon - Icon source URL.
+ * @param {string} props.title - Step title.
+ * @param {string} props.description - Step description.
+ * @param {string} [props.connector] - Connector image source URL.
+ */
 const Step = ({ icon, title, description, connector }) => {
   return (
     <div
       className={`${styles.step} ${
         title === "Complete your profile" ? styles["step--document"] : ""
       }`}
+      role="listitem"
+      aria-label={`${title} step`}
     >
-      {/* Icon for the step */}
+      {/* Step Icon */}
       <div
         className={`${styles["step__icon"]} ${
           title === "Complete your profile"
@@ -17,27 +26,35 @@ const Step = ({ icon, title, description, connector }) => {
             : ""
         }`}
       >
-        <img src={icon} alt={title} loading="lazy" />
+        <img
+          src={icon}
+          alt={`${title} icon`}
+          loading="lazy"
+          width="24"
+          height="24"
+        />
       </div>
-      {/* Step title */}
+      {/* Step Title */}
       <h3 className={styles["step__title"]}>{title}</h3>
-      {/* Step description */}
+      {/* Step Description */}
       <p className={styles["step__description"]}>{description}</p>
-      {/* Step connector */}
+      {/* Step Connector */}
       {connector && (
         <img
           src={connector}
-          alt="connector line"
+          alt="Connector line between steps"
           className={`${styles["step__connector"]} ${
             title === "Complete your profile"
               ? styles["step__connector--reversed"]
               : ""
           }`}
+          loading="lazy"
+          width="50"
+          height="50"
         />
       )}
     </div>
   );
 };
 
-// Use React.memo to prevent unnecessary re-renders
 export default React.memo(Step);
