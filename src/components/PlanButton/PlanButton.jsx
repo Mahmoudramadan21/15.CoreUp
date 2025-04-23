@@ -26,8 +26,6 @@ const PlanButton = ({ children, to, variant = "default", ariaLabel }) => {
         src={variant === "default" ? arrowRight : arrowRightLight}
         className={styles["planButton__arrow"]}
         alt="Arrow right icon"
-        width="20"
-        height="20"
         loading="lazy"
       />
     </Link>

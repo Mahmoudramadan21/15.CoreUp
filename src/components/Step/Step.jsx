@@ -11,7 +11,7 @@ import styles from "./Step.module.scss";
  */
 const Step = ({ icon, title, description, connector }) => {
   return (
-    <article
+    <div
       className={`${styles.step} ${
         title === "Complete your profile" ? styles["step--document"] : ""
       }`}
@@ -25,13 +25,7 @@ const Step = ({ icon, title, description, connector }) => {
             : ""
         }`}
       >
-        <img
-          src={icon}
-          alt={`${title} step icon`}
-          loading="lazy"
-          width="60"
-          height="60"
-        />
+        <img src={icon} alt={`${title} step icon`} loading="lazy" />
       </div>
       {/* Step Title */}
       <h3 className={styles["step__title"]}>{title}</h3>
@@ -47,13 +41,11 @@ const Step = ({ icon, title, description, connector }) => {
               ? styles["step__connector--reversed"]
               : ""
           }`}
-          width="100"
-          height="50"
           loading="lazy"
           aria-hidden="true"
         />
       )}
-    </article>
+    </div>
   );
 };
 

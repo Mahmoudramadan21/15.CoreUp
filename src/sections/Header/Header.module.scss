@@ -5,7 +5,8 @@
 .header {
   position: sticky;
   top: 0;
-  padding: vars.$spacing-medium 0;
+  padding-top: vars.$spacing-medium;
+  padding-bottom: vars.$spacing-medium;
   background-color: vars.$color-background-white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   z-index: 100;

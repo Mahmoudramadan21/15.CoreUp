@@ -1,13 +1,16 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Pricing section container styles
 .pricing {
   position: relative;
   @include mixins.flex($direction: column, $justify: center, $align: center);
-  padding: vars.$spacing-large 20px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background-color: vars.$color-background-white;
 }
 
+// Pricing plans container styles
 .pricing__plans {
   @include mixins.flex(
     $direction: row,
@@ -19,6 +22,7 @@
   max-width: 1200px;
 }
 
+// Blob background decoration
 .pricing__blob {
   position: absolute;
   top: -10px;
@@ -28,6 +32,7 @@
   z-index: 1;
 }
 
+// Spiral decoration (left side)
 .pricing__spiral-left {
   position: absolute;
   top: 50%;
@@ -39,6 +44,7 @@
   z-index: 1;
 }
 
+// Spiral decoration (right side)
 .pricing__spiral-right {
   position: absolute;
   top: 50%;
@@ -50,15 +56,16 @@
   z-index: 1;
 }
 
+// Responsive adjustments for mobile
 @include mixins.respond-to("mobile") {
   .pricing__plans {
-    @include mixins.flex($direction: column, $gap: 30px);
+    @include mixins.flex($direction: column, $gap: 50px);
   }
 
   .pricing__blob {
     width: 150px;
     height: 100px;
-    top: -50px;
+    top: -10px;
     left: 0;
   }
 

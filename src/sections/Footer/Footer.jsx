@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles["footer__container"]}>
+      <div className={`${styles["footer__container"]} container`}>
         {/* Main Columns */}
         <div className={styles["footer__columns"]}>
           {/* Platform Column */}

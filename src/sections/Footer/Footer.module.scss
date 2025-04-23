@@ -13,7 +13,6 @@
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 
   @include mixins.respond-to("mobile") {
     text-align: center;
@@ -71,10 +70,6 @@
     outline: vars.$focus-outline-width solid vars.$focus-outline-color;
     outline-offset: vars.$focus-outline-offset;
   }
-}
-
-// Newsletter form
-.footer__newsletter-form {
 }
 
 // Newsletter description (hidden for screen readers)
@@ -163,16 +158,19 @@
 .footer__newsletter-checkbox-text {
   font-size: 0.85rem;
   color: vars.$text-light-gray;
+  line-height: 1.4;
 }
 
 // Newsletter "Read more" link
 .footer__newsletter-link {
-  color: vars.$blue;
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
+  border-bottom: 0 solid vars.$white;
 
   &:hover {
-    color: vars.$blue-dark;
+    border-width: 100%;
+    border-width: 1px;
   }
 
   &:focus-visible {

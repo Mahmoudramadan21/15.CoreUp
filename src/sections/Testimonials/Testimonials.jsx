@@ -1,68 +1,61 @@
-import React, { Suspense } from "react";
+import React from "react";
 import styles from "./Testimonials.module.scss";
-
-// Placeholder avatars
+import Testimonial from "../../components/Testimonial/Testimonial";
 import avatar1 from "../../assets/avatars/avatar1.svg";
 import avatar2 from "../../assets/avatars/avatar2.svg";
 import avatar3 from "../../assets/avatars/avatar3.svg";
 
-// Lazy load the Testimonial component for better performance
-const Testimonial = React.lazy(() =>
-  import("../../components/Testimonial/Testimonial")
-);
-
-// Data for testimonials
-const testimonialsData = [
-  {
-    avatar: avatar1,
-    name: "Mohamed",
-    role: "Software",
-    text: "Lorem ipsum dolor sit amet consectetur. Rutrum scelerisque et purus commodo.",
-  },
-  {
-    avatar: avatar2,
-    name: "Basel",
-    role: "Agriculture",
-    text: "Lorem ipsum dolor sit amet consectetur. Arcu nec vel ultricies vestibulum. Consequat.",
-    isFeatured: true,
-  },
-  {
-    avatar: avatar3,
-    name: "Ahmed",
-    role: "Medicine",
-    text: "Lorem ipsum dolor sit amet consectetur. Pellentesque blandit faucibus imperdiet.",
-  },
-];
-
+/*
+ * Testimonials Section to display client testimonials
+ */
 const Testimonials = () => {
+  const testimonials = [
+    {
+      avatar: avatar1,
+      name: "John Doe",
+      role: "Startup Founder",
+      text: "Coreup helped me connect with the right investors to grow my startup. The platform is intuitive and efficient!",
+      isFeatured: false,
+    },
+    {
+      avatar: avatar2,
+      name: "Jane Smith",
+      role: "Investor",
+      text: "I found amazing startups to invest in through Coreup. The matching algorithm is spot on.",
+      isFeatured: true,
+    },
+    {
+      avatar: avatar3,
+      name: "Alex Brown",
+      role: "Job Seeker",
+      text: "Thanks to Coreup, I landed my dream job at a startup. Highly recommend this platform!",
+      isFeatured: false,
+    },
+  ];
+
   return (
-    // Section container for Testimonials
-    <section className={styles.testimonials}>
-      {/* Section title */}
-      <h2 className={styles["testimonials__title"]}>Client Testimonial</h2>
-      {/* Testimonials container */}
-      <div className={styles["testimonials__list"]}>
-        <Suspense fallback={<div>Loading...</div>}>
-          {testimonialsData.map((testimonial) => (
-            <Testimonial
-              key={testimonial.name}
-              avatar={testimonial.avatar}
-              name={testimonial.name}
-              role={testimonial.role}
-              text={testimonial.text}
-              isFeatured={testimonial.isFeatured || false}
-            />
-          ))}
-        </Suspense>
+    <section
+      className={`${styles.testimonials} container`}
+      aria-label="Client Testimonials"
+    >
+      {/* Section Header */}
+      <div className={styles.testimonials__header}>
+        <h2 className={styles.testimonials__title}>What Our Clients Say</h2>
+        <p className={styles.testimonials__description}>
+          Hear from startups, investors, and job seekers who have succeeded with
+          Coreup.
+        </p>
       </div>
-      {/* Pagination dots */}
-      <div className={styles["testimonials__pagination"]}>
-        {testimonialsData.map((_, index) => (
-          <span
+      {/* Testimonials List */}
+      <div className={styles.testimonials__list}>
+        {testimonials.map((testimonial, index) => (
+          <Testimonial
             key={index}
-            className={`${styles["testimonials__dot"]} ${
-              index === 1 ? styles["testimonials__dot--active"] : ""
-            }`}
+            avatar={testimonial.avatar}
+            name={testimonial.name}
+            role={testimonial.role}
+            text={testimonial.text}
+            isFeatured={testimonial.isFeatured}
           />
         ))}
       </div>
@@ -70,4 +63,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default React.memo(Testimonials);

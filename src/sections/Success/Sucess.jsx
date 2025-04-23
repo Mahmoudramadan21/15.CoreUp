@@ -2,44 +2,48 @@ import React from "react";
 import styles from "./Success.module.scss";
 import Card from "../../components/Card/Card";
 
-export default function Success() {
+/*
+ * Success Section to display success metrics or highlights
+ */
+const Success = () => {
+  const cards = [
+    {
+      title: "Startups Onboarded",
+      subtitle: "Startup founders & team members",
+      description:
+        "Startups have joined our platform to find investors and grow.",
+      className: "card--startup",
+      role: "region",
+    },
+    {
+      title: "Investors Connected",
+      subtitle: "VC Funds, Angel Syndicates & Networks",
+      description: "Investors are actively connecting with startups on Coreup.",
+      className: "card--investor",
+      role: "region",
+    },
+  ];
+
   return (
     <section
       className={`${styles.success} container`}
-      aria-labelledby="success-title"
-      aria-describedby="success-subtitle"
+      aria-label="Success Metrics"
     >
-      <h2 id="success-title" className={styles.success__title}>
-        Boost Your Success with Powerful
-        <br />
-        <span className={styles.success__title_highlight}>
-          Tools and Connections
-        </span>
-      </h2>
-      <p id="success-subtitle" className={styles.success__subtitle}>
-        Lorem ipsum dolor sit amet consectetur. Amet viverra tincidunt sit
-        blandit natoque gravida.
-      </p>
-
-      <div className={styles.success__cards} role="list">
-        <Card
-          className="card--startup"
-          title="Startups"
-          subtitle="Startup founders & team members"
-          description="Lorem ipsum dolor sit amet consectetur. Amet viverra tincidunt sit
-              blandit natoque gravida."
-          role="listitem"
-        />
-
-        <Card
-          className="card--investor"
-          title="Investors"
-          subtitle="VC Funds, Angel Syndicates & Networks"
-          description="Lorem ipsum dolor sit amet consectetur. Amet viverra tincidunt sit
-              blandit natoque gravida."
-          role="listitem"
-        />
+      {/* Cards List */}
+      <div className={styles.success__cards}>
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            className={card.className}
+            title={card.title}
+            subtitle={card.subtitle}
+            description={card.description}
+            role={card.role}
+          />
+        ))}
       </div>
     </section>
   );
-}
+};
+
+export default React.memo(Success);

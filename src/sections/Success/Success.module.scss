@@ -1,42 +1,19 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// Success section styles
 .success {
-  // Box Model
-  margin-top: 90px;
-  margin-bottom: 90px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
 
-  &__title {
-    // Typography
-    font-size: clamp(1.3rem, 2vw, 2rem);
-    color: vars.$color-text-dark;
-    text-align: center;
+// Cards container
+.success__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 
-    &_highlight {
-      // Typography
-      color: vars.$color-primary;
-    }
-  }
-
-  &__subtitle {
-    // Box Model
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    // Typography
-    color: vars.$color-text-gray-muted;
-    text-align: center;
-
-    @include mixins.respond-to("mobile", "min") {
-      margin-bottom: 4rem;
-    }
-  }
-
-  &__cards {
-    // Layout
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+  @include mixins.respond-to("tablet") {
+    grid-template-columns: 1fr;
   }
 }

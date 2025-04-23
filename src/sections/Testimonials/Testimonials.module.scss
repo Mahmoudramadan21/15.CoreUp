@@ -1,42 +1,50 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Testimonials container
+// Testimonials section styles
 .testimonials {
-  // Box Model
-  padding: vars.$spacing-large 0;
-  margin-bottom: 90px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
-// Section Title
-.testimonials__title {
-  // Typography
+// Section header
+.testimonials__header {
   text-align: center;
-
-  // Box Model
   margin-bottom: vars.$spacing-large;
+}
 
-  // Typography
+// Section title
+.testimonials__title {
   font-size: vars.$font-size-title;
   font-weight: vars.$font-weight-bold;
   color: vars.$color-text-dark;
+  margin-bottom: vars.$spacing-medium;
+
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(1.5rem, 5vw, vars.$font-size-title);
+  }
 }
 
-// Testimonials List
-.testimonials__list {
-  // Layout
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  // Box Model
-  gap: 24px;
-  width: 100%;
-  max-width: 1200px;
+// Section description
+.testimonials__description {
+  font-size: vars.$font-size-body;
+  color: vars.$color-text-gray;
+  max-width: 600px;
   margin: 0 auto;
 
+  @include mixins.respond-to("mobile") {
+    font-size: clamp(0.8rem, 2vw, vars.$font-size-body);
+  }
+}
+
+// Testimonials list container
+.testimonials__list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
   @include mixins.respond-to("tablet") {
-    // Layout
     flex-direction: column;
+    align-items: center;
   }
 }

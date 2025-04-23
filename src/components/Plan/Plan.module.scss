@@ -1,7 +1,7 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
-// Plan card styles
+// Plan card container styles
 .plan {
   position: relative;
   display: flex;
@@ -22,13 +22,13 @@
   }
 }
 
-// Plan header section
+// Plan header section styles
 .plan__header {
   padding: 1.8rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-// Recommended tag
+// Recommended tag styles
 .plan__recommended-tag {
   position: absolute;
   top: -15px;
@@ -44,13 +44,13 @@
   z-index: 3;
 }
 
-// Plan title
+// Plan title styles
 .plan__title {
   font-weight: vars.$font-weight-medium;
   color: vars.$color-text-dark;
 }
 
-// Plan description
+// Plan description styles
 .plan__description {
   margin: 0.8rem 0;
   font-size: 0.85rem;
@@ -58,7 +58,7 @@
   color: vars.$color-text;
 }
 
-// Plan price
+// Plan price container styles
 .plan__price {
   position: relative;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -76,12 +76,12 @@
   }
 }
 
-// Plan footer section
+// Plan footer section styles
 .plan__footer {
   padding: 0.7rem 1.8rem 1rem;
 }
 
-// Plan features list
+// Plan features list styles
 .plan__features {
   display: flex;
   flex-direction: column;
@@ -89,7 +89,7 @@
   margin-bottom: 2rem;
 }
 
-// Individual feature item
+// Individual feature item styles
 .plan__feature {
   display: flex;
   align-items: center;
@@ -98,14 +98,14 @@
   color: vars.$color-text-gray;
 }
 
-// Check icon for features
+// Check icon styles for features
 .plan__check {
   width: 16px;
   height: 16px;
   color: vars.$color-primary;
 }
 
-// Plan button container
+// Plan button container styles
 .plan__button {
   display: flex;
   justify-content: flex-start;

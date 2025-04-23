@@ -14,6 +14,10 @@ import connectorReversedLine from "../../assets/icons/connector-reversed-line.sv
 // Lazy load the Step component for better performance
 const Step = React.lazy(() => import("../../components/Step/Step"));
 
+/*
+ * HowItWorks Section to display the steps for using the platform
+ */
+
 // Data for the steps (you can fetch this from an API)
 const stepsData = [
   {
@@ -47,28 +51,31 @@ const stepsData = [
 
 const HowItWorks = () => {
   return (
-    // Section container for "How It Works"
-    <section className={styles["how-it-works"]}>
-      {/* Section title */}
-      <h2 className={styles["how-it-works__title"]}>How CoreUp Work</h2>
-      {/* Steps container */}
-      <div className={styles["how-it-works__steps"]}>
-        {/* Use Suspense for lazy loading */}
-        <Suspense fallback={<div>Loading...</div>}>
-          {stepsData.map((step) => (
-            // Render each step using Step component
-            <Step
-              key={step.title}
-              icon={step.icon}
-              title={step.title}
-              description={step.description}
-              connector={step.connector}
-            />
-          ))}
-        </Suspense>
+    <section
+      className={`${styles["how-it-works"]}`}
+      aria-label="How CoreUp Works"
+    >
+      <div className="container">
+        {/* Section Title */}
+        <h2 className={styles["how-it-works__title"]}>How CoreUp Work</h2>
+        {/* Steps Container */}
+        <div className={styles["how-it-works__steps"]}>
+          {/* Suspense for lazy loading Step component */}
+          <Suspense fallback={<div aria-live="polite">Loading...</div>}>
+            {stepsData.map((step) => (
+              <Step
+                key={step.title}
+                icon={step.icon}
+                title={step.title}
+                description={step.description}
+                connector={step.connector}
+              />
+            ))}
+          </Suspense>
+        </div>
       </div>
     </section>
   );
 };
 
-export default HowItWorks;
+export default React.memo(HowItWorks);

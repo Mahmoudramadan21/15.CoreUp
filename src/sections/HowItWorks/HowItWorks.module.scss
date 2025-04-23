@@ -1,12 +1,15 @@
 @use "../../styles/variables" as vars;
 @use "../../styles/mixins";
 
+// How It Works section container styles
 .how-it-works {
   @include mixins.flex($direction: column, $justify: center, $align: center);
-  padding: vars.$spacing-large 20px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background-color: vars.$color-background-light;
 }
 
+// Section title styles
 .how-it-works__title {
   text-align: center;
   margin-bottom: vars.$spacing-large;
@@ -15,6 +18,7 @@
   color: vars.$color-text-dark;
 }
 
+// Steps container styles
 .how-it-works__steps {
   @include mixins.flex(
     $direction: row,

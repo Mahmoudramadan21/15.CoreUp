@@ -5,7 +5,9 @@ import PlanButton from "../../components/PlanButton/PlanButton";
 import blob from "../../assets/blob.svg";
 import spiral from "../../assets/spiral.svg";
 
-// Pricing Plans Section
+/*
+ * Pricing Section to display available plans
+ */
 const Pricing = () => {
   const plans = [
     {
@@ -62,52 +64,56 @@ const Pricing = () => {
   ];
 
   return (
-    <section className={styles.pricing}>
-      {/* Background Images */}
-      <img
-        src={blob}
-        alt="Blob background"
-        className={styles["pricing__blob"]}
-        loading="lazy"
-      />
-      <img
-        src={spiral}
-        alt="Spiral background"
-        className={styles["pricing__spiral-left"]}
-        loading="lazy"
-      />
-      <img
-        src={spiral}
-        alt="Spiral background"
-        className={styles["pricing__spiral-right"]}
-        loading="lazy"
-      />
-
-      {/* Pricing Plans */}
-      <div className={styles["pricing__plans"]}>
-        {plans.map((plan, index) => (
-          <Plan
-            key={index}
-            title={plan.title}
-            description={plan.description}
-            price={plan.price}
-            period={plan.period}
-            features={plan.features}
-            isRecommended={plan.isRecommended}
-            button={
-              <PlanButton
-                variant={plan.buttonVariant}
-                to="/pricing"
-                aria-label={`Choose ${plan.title} plan`}
-              >
-                Choose Plan
-              </PlanButton>
-            }
-          />
-        ))}
+    <section className={styles.pricing} aria-label="Pricing Plans">
+      <div className="container">
+        {/* Background Decorations */}
+        <img
+          src={blob}
+          alt="Blob background decoration"
+          className={styles["pricing__blob"]}
+          loading="lazy"
+          aria-hidden="true"
+        />
+        <img
+          src={spiral}
+          alt="Spiral background decoration"
+          className={styles["pricing__spiral-left"]}
+          loading="lazy"
+          aria-hidden="true"
+        />
+        <img
+          src={spiral}
+          alt="Spiral background decoration"
+          className={styles["pricing__spiral-right"]}
+          loading="lazy"
+          aria-hidden="true"
+        />
+        {/* Pricing Plans */}
+        <div className={styles["pricing__plans"]}>
+          {plans.map((plan, index) => (
+            <Plan
+              key={index}
+              title={plan.title}
+              description={plan.description}
+              price={plan.price}
+              period={plan.period}
+              features={plan.features}
+              isRecommended={plan.isRecommended}
+              button={
+                <PlanButton
+                  variant={plan.buttonVariant}
+                  to="/pricing"
+                  aria-label={`Choose ${plan.title} plan`}
+                >
+                  Choose Plan
+                </PlanButton>
+              }
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default Pricing;
+export default React.memo(Pricing);
